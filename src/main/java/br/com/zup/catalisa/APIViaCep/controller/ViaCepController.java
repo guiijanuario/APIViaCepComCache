@@ -28,7 +28,6 @@ public class ViaCepController {
     @Operation(summary = " : Busca endereço pelo CEP", method = "GET")
     @Cacheable("cep")
     public CepModel buscaCep(@PathVariable String cep){
-
         if(cep.length() >= 9){
           String cepSemMascara = cepValidations.removedorDeMascaraCep(cep);
           return viaCepService.findCep(cepSemMascara);
